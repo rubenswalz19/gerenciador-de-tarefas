@@ -1,0 +1,15 @@
+{
+  "name": "gerenciador-de-tarefas",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Gerenciador de Tarefas com API HTTP em Node.js puro (sem dependências externas)",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test",
+    "smoke": "node scripts/smoke.mjs"
+  }
+}

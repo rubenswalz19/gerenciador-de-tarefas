@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gerenciador de Tarefas</title>
+    <link rel="stylesheet" href="/app.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app__header">
+        <p class="eyebrow">Node.js puro · sem dependências</p>
+        <h1>Gerenciador de Tarefas</h1>
+        <p class="subtitle">Organize o dia: crie, conclua e remova tarefas.</p>
+      </header>
+
+      <section class="card" aria-labelledby="form-title">
+        <h2 id="form-title" class="sr-only">Nova tarefa</h2>
+        <form id="task-form" class="task-form" novalidate>
+          <label class="sr-only" for="task-title">Título da tarefa</label>
+          <input
+            id="task-title"
+            name="title"
+            type="text"
+            maxlength="200"
+            placeholder="O que precisa ser feito?"
+            autocomplete="off"
+            required
+          />
+          <button type="submit" id="submit-button">Adicionar</button>
+        </form>
+        <p id="error" class="error" role="alert" hidden></p>
+      </section>
+
+      <section class="card" aria-labelledby="list-title">
+        <div class="list-header">
+          <h2 id="list-title">Suas tarefas</h2>
+          <span id="counter" class="counter">0 tarefas</span>
+        </div>
+
+        <p id="loading" class="status">Carregando...</p>
+        <p id="empty" class="status" hidden>Nenhuma tarefa por aqui. Crie a primeira acima.</p>
+
+        <ul id="task-list" class="task-list" aria-live="polite"></ul>
+      </section>
+    </main>
+
+    <template id="task-template">
+      <li class="task">
+        <label class="task__check">
+          <input type="checkbox" class="task__toggle" />
+          <span class="task__title"></span>
+        </label>
+        <time class="task__date"></time>
+        <button type="button" class="task__delete" aria-label="Remover tarefa">Remover</button>
+      </li>
+    </template>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
